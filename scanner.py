@@ -41,8 +41,8 @@ MT = [[  1,    2, ERR,      3,    2,    2,    2,    2,    2,    2,    2,    2,  
 	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  PUNI,  PUNI, PUNI,  PUNI,  ERR,  PUNI, PUNI, PUNI, PUNI,  PUNI,  ERR, ERR],  #6 @ADE (Predicador binaro)
 	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,    8,   11,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR],  #7 @D (Estado parcial)
 	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,    9,  ERR,  ERR,  ERR,   10,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR],  #8 @DE (Estado parcial)
-	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUBI,  BUNI,  ERR,  BUNI, BUNI, BUNI,  BUNI, BUNI,  ERR, ERR],  #9 @DET (Predicado binario)
-	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUBI,  BUNI,  ERR,  BUNI, BUNI, BUNI,  BUNI, BUNI,  ERR, ERR],  #10 @DER (Predicado binario)
+	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUNI,  BUNI,  ERR,  BUNI, BUNI, BUNI,  BUNI, BUNI,  ERR, ERR],  #9 @DET (Predicado binario)
+	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUNI,  BUNI,  ERR,  BUNI, BUNI, BUNI,  BUNI, BUNI,  ERR, ERR],  #10 @DER (Predicado binario)
 	  [ERR,  ERR,  ERR,   ERR,  ERR,   12,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,   ERR,  ERR,  ERR, ERR],  #11 @DO (Estado parcial)
 	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  PUNI,  PUNI, PUNI,  PUNI,  ERR,  PUNI, PUNI, PUNI, PUNI,  PUNI,  ERR, ERR],  #12 @DOD (Predicado unario)
 	  [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   14,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR],  #13 @C (Estado parcial)
@@ -62,63 +62,63 @@ MT = [[  1,    2, ERR,      3,    2,    2,    2,    2,    2,    2,    2,    2,  
 def filtro(c):
     if c >= 'a' and c <= 'z':
 		return 0
-	elif c >= 'A' and c <= 'Z' and !isAt:
+    elif c >= 'A' and c <= 'Z':
 		return 1
-	elif c >= '0' and c <= '9':
+    elif c >= '0' and c <= '9':
 		return 2
-	elif c == '@':
+    elif c == '@':
 		isAt = True
 		return 3
-	elif c == 'A':
+    elif c == 'A':
 		return 4
-	elif c == 'D':
+    elif c == 'D':
 		return 5
-	elif c == 'C':
+    elif c == 'C':
 		return 6
-	elif c == 'T':
+    elif c == 'T':
 		return 7
-	elif c == 'I':
+    elif c == 'I':
 		return 8
-	elif c == 'E':
+    elif c == 'E':
 		return 9
-	elif c == 'O':
+    elif c == 'O':
 		return 10
-	elif c == 'R':
+    elif c == 'R':
 		return 11
-	elif c == 'U':
+    elif c == 'U':
 		return 12
-	elif c == 'B':
+    elif c == 'B':
 		return 13
-	elif c == 'Z':
+    elif c == 'Z':
 		return 14
-	elif c == 'Q':
+    elif c == 'Q':
 		return 15
-	elif c == '~':
+    elif c == '~':
 		return 16
-	elif c == '&':
+    elif c == '&':
 		return 17
-	elif c == '|':
+    elif c == '|':
 		return 18
-	elif c == '<':
+    elif c == '<':
 		return 19
-	elif c == '-':
+    elif c == '-':
 		return 20
-	elif c == '.':
+    elif c == '.':
 		return 21
-	elif c == ' ':
+    elif c == ' ':
 		return 22
-	elif c == '(':
+    elif c == '(':
 		isAt = False
 		return 23
-	elif c == ')':
+    elif c == ')':
 		return 24
-	elif c == ',':
+    elif c == ',':
 		return 25
-	elif c == '>':
+    elif c == '>':
 		return 26
-	elif c == '_':
+    elif c == '_':
 		return 27
-	elif c == '=':
+    elif c == '=':
 		return 28
 
 def scanner():
@@ -170,31 +170,31 @@ def scanner():
             leer = False # el .ltimo caracter no es raro
             print "Predicado Binario", lexema
 			#return BUNI
-		elif edo == CTF:
+        elif edo == CTF:
 			print "Cuantificador", lexema
 			#return CTF
-		elif edo == TIL:
+        elif edo == TIL:
 			print "Tilde", lexema
 			#return TIL
-		elif edo == AMP:
+        elif edo == AMP:
 			print "Amperson", lexema
 			#return AMP
-		elif edo == ORP:
+        elif edo == ORP:
 			print "Or", lexema
 			#return ORP
-		elif edo == ESP:
+        elif edo == ESP:
 			print "Espacio", lexema
 			#return ESP
-		elif edo == OBI:
+        elif edo == OBI:
 			print "Operador binario", lexema
 			#return OBI
-		elif edo == UND:
+        elif edo == UND:
 			print "Guion bajo", lexema
 			#return UND
-		elif edo == OND:
+        elif edo == OND:
 			print "Asignacion", lexema
 			#return OND
-		elif edo == ERR:
+        elif edo == ERR:
 			print "Error", lexema
 			#return ERR
         tokens.append(edo)
