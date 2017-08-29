@@ -208,7 +208,6 @@ def scanner():
 			print "Guion bajo", lexema
 			#return UND
 		elif edo == OND:
-			leer = False
 			print "Asignacion", lexema
 			#return OND
 		elif edo == ERR:
