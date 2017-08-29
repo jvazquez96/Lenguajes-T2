@@ -22,6 +22,7 @@ ORP  = 113 # Or |
 ESP  = 114 # Espacio
 OBI  = 115 # Operador binario
 UND  = 116 # Guion bajo
+OND  = 117 # Operador de asignacion 
 ERR  = 200 # Error
 
 # Matriz de transiciones: codificacion del AFD
