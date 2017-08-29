@@ -207,7 +207,7 @@ def scanner():
 			#return OND
 		elif edo == ERR:
 			leer = False
-			lexema += c
+			# lexema += c
 			print "Error", lexema
 			#return ERR
 			tokens.append(edo)
