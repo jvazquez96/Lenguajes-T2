@@ -21,11 +21,11 @@ ERR  = 200 # Error
 
 # Matriz de transiciones: codificacion del AFD
 # [renglon, columna] = [estado no final, transicion]
-#      a-z  A-Z    0-9         _       @CUB  @TET  @DOD  @IZQ  @DER  @ADE   @DET    @A   @E    ~        &    |      ->     <->     $      (      )     ,     .   \t " "
-MT = [[  1,   2, PENDIENTE, PENDIENTE,    3,    3,    3,    4,    4,    4,     4,   5,   5,   TIL,   SEPA, SEPA,  SEPA,   SEPA,  SEPA,  LRP,   RRP,  COM, PUNT,   END],
-	  [1, ERR, 1, 1, VAR, VAR, VAR, VAR, VAR, VAR, VAR, VAR, VAR, TIL, VAR, VAR, VAR , VAR, VAR, VAR, VAR, VAR, VAR, VAR],
-	  [ERR, 2, 2, 2, CTE, CTE, CTE, CTE, CTE, CTE, CTE, CTE, CTE, TIL, CTE, CTE, CTE, CTE, CTE, CTE, CTE, CTE, CTE, CTE],
-	  [PUNI, PUNI, PUNI, PUNI, 3, 3, 3, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, TIL, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI],
-	  [BUNI, BUNI, BUNI, BUNI, BUNI, BUNI, BUNI, 4, 4, 4, 4, BUNI, BUNI, TIL, BUNI, BUNI, BUNI, BUNI, BUNI, BUNI, BUNI, BUNI],
-	  [CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, 5, 5, TIL, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF, CTF], 
-	  [ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR< ERR< ERR, ERR, ERR< ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR, ERR]]
+#      a-z  A-Z    0-9         _       @CUB  @TET  @DOD  @IZQ  @DER  @ADE   @DET    @A   @E    ~      &    |      ->     <->     $      (      )     ,     .   \t " "
+MT = [[  1,    2, PENDIENTE, PENDIENTE,    3,    3,    3,    4,    4,    4,    4,   5,     5, TIL, SEPA, SEPA,  SEPA,   SEPA,  SEPA,   LRP,   RRP,  COM, PUNT,   END],
+	  [  1,  ERR,         1,         1,  VAR,  VAR,  VAR,  VAR,  VAR,  VAR,  VAR,  VAR,  VAR, TIL,  VAR,  VAR,   VAR,    VAR,   VAR,   VAR,   VAR,  VAR,  VAR,   VAR],
+	  [ERR,    2,         2,         2,  CTE,  CTE,  CTE,  CTE,  CTE,  CTE,  CTE,  CTE,  CTE, TIL,  CTE,  CTE,   CTE,    CTE,   CTE,   CTE,   CTE,  CTE,  CTE,   CTE],
+	  [PUNI, PUNI,     PUNI,      PUNI,    3,    3,    3, PUNI, PUNI, PUNI, PUNI, PUNI, PUNI, TIL, PUNI, PUNI,  PUNI,   PUNI,  PUNI,  PUNI,  PUNI, PUNI, PUNI,  PUNI],
+	  [BUNI, BUNI,     BUNI,      BUNI, BUNI, BUNI, BUNI,    4,    4,    4,    4, BUNI, BUNI, TIL, BUNI, BUNI,  BUNI,   BUNI,  BUNI,  BUNI,  BUNI, BUNI, BUNI,  BUNI],
+	  [CTF,   CTF,      CTF,       CTF,  CTF,  CTF,  CTF,  CTF,  CTF,  CTF,  CTF,    5,    5, TIL,  CTF,  CTF,   CTF,    CTF,   CTF,   CTF,   CTF,  CTF,  CTF,   CTF],
+	  [ERR,   ERR,      ERR,       ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR, ERR,  ERR,  ERR,   ERR,    ERR,   ERR,   ERR,   ERR,  ERR,  ERR,   ERR]]
