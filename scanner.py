@@ -122,6 +122,7 @@ def filtro(c):
 		return 29
 
 def scanner():
+	global isAt
 	edo = 0 # n.mero de estado en el aut.mata
 	lexema = "" # palabra que genera el token
 	tokens = []
@@ -197,6 +198,7 @@ def scanner():
 			print "Asignacion", lexema
 			#return OND
 		elif edo == ERR:
+			lexema += c
 			print "Error", lexema
 			#return ERR
 			tokens.append(edo)
