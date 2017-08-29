@@ -122,6 +122,8 @@ def filtro(c):
 		return 29
 	elif c == '$':
 		return 30
+	else:
+		return 1
 
 def scanner():
 	global isAt
@@ -204,7 +206,7 @@ def scanner():
 			print "Asignacion", lexema
 			#return OND
 		elif edo == ERR:
-			# lexema += c
+			lexema += c
 			print "Error", lexema
 			#return ERR
 			tokens.append(edo)
