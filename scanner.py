@@ -163,6 +163,7 @@ def scanner():
 			print "Coma", lexema
 			#return COM
 		elif edo == PUNT:
+			leer = False
 			lexema += c
 			print "Punto", lexema
 			#return PUNT
@@ -179,27 +180,33 @@ def scanner():
 			print "Cuantificador", lexema
 			#return CTF
 		elif edo == TIL:
+			leer = False
 			print "Tilde", lexema
 			#return TIL
 		elif edo == AMP:
+			leer = False
 			print "Amperson", lexema
 			#return AMP
 		elif edo == ORP:
+			leer = False
 			print "Or", lexema
 			#return ORP
 		elif edo == ESP:
 			print "Espacio", lexema
 			#return ESP
 		elif edo == OBI:
+			leer = False
 			print "Operador binario", lexema
 			#return OBI
 		elif edo == UND:
 			print "Guion bajo", lexema
 			#return UND
 		elif edo == OND:
+			leer = False
 			print "Asignacion", lexema
 			#return OND
 		elif edo == ERR:
+			leer = False
 			lexema += c
 			print "Error", lexema
 			#return ERR
