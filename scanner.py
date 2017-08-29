@@ -180,7 +180,6 @@ def scanner():
 			print "Cuantificador", lexema
 			#return CTF
 		elif edo == TIL:
-			leer = False
 			print "Tilde", lexema
 			#return TIL
 		elif edo == AMP:
