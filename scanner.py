@@ -137,65 +137,66 @@ def scanner():
         if edo == VAR:
             leer = False # ya se ley. el siguiente caracter
             print "Variable", lexema
+            #return VAR
         elif edo == CTE:
             leer = False # ya se ley. el siguiente caracter
             print "Constante", lexema
-			return CTE
+			#return CTE
         elif edo == SEPA:
             lexema += c  # el .ltimo caracter forma el lexema
             print "Separador", lexema
-			return SEPA
+			#return SEPA
         elif edo == LRP:
             lexema += c  # el .ltimo caracter forma el lexema
             print "Delimitador", lexema
-			return LRP
+			#return LRP
         elif edo == RRP:
             lexema += c  # el .ltimo caracter forma el lexema
             print "Delimitador", lexema
-			return RRP
+			#return RRP
         elif edo == COM:
             lexema += c
             print "Coma", lexema
-			return COM
+			#return COM
         elif edo == PUNT:
             lexema += c
             print "Punto", lexema
-			return PUNT
+			#return PUNT
         elif edo == PUNI:
             leer = False
             print "Predicado Binario", lexema
-			return PUNI
+			#return PUNI
         elif edo == BUNI:
             leer = False # el .ltimo caracter no es raro
             print "Predicado Binario", lexema
-			return BUNI
+			#return BUNI
 		elif edo == CTF:
 			print "Cuantificador", lexema
-			return CTF
+			#return CTF
 		elif edo == TIL:
 			print "Tilde", lexema
-			return TIL
+			#return TIL
 		elif edo == AMP:
 			print "Amperson", lexema
-			return AMP
+			#return AMP
 		elif edo == ORP:
 			print "Or", lexema
-			return ORP
+			#return ORP
 		elif edo == ESP:
 			print "Espacio", lexema
-			return ESP
+			#return ESP
 		elif edo == OBI:
 			print "Operador binario", lexema
-			return OBI
+			#return OBI
 		elif edo == UND:
 			print "Guion bajo", lexema
-			return UND
+			#return UND
 		elif edo == OND:
 			print "Asignacion", lexema
-			return OND
+			#return OND
 		elif edo == ERR:
 			print "Error", lexema
-			return ERR
+			#return ERR
         tokens.append(edo)
         if edo == END: return tokens
         lexema = ""
