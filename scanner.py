@@ -134,74 +134,74 @@ def scanner():
 			else:
 				leer = True
 			edo = MT[edo][filtro(c)]
-			print edo
 			if edo < 100 and edo != 0: lexema += c
-			if edo == VAR:
-				leer = False # ya se ley. el siguiente caracter
-				print "Variable", lexema
-				#return VAR
-			elif edo == CTE:
-				leer = False # ya se ley. el siguiente caracter
-				print "Constante", lexema
-				#return CTE
-			elif edo == SEPA:
-				lexema += c  # el .ltimo caracter forma el lexema
-				print "Separador", lexema
-				#return SEPA
-			elif edo == LRP:
-				lexema += c  # el .ltimo caracter forma el lexema
-				print "Delimitador", lexema
-				#return LRP
-			elif edo == RRP:
-				lexema += c  # el .ltimo caracter forma el lexema
-				print "Delimitador", lexema
-				#return RRP
-			elif edo == COM:
-				lexema += c
-				print "Coma", lexema
-				#return COM
-			elif edo == PUNT:
-				lexema += c
-				print "Punto", lexema
-				#return PUNT
-			elif edo == PUNI:
-				leer = False
-				print "Predicado Binario", lexema
-				#return PUNI
-			elif edo == BUNI:
-				leer = False # el .ltimo caracter no es raro
-				print "Predicado Binario", lexema
-				#return BUNI
-			elif edo == CTF:
-				print "Cuantificador", lexema
-				#return CTF
-			elif edo == TIL:
-				print "Tilde", lexema
-				#return TIL
-			elif edo == AMP:
-				print "Amperson", lexema
-				#return AMP
-			elif edo == ORP:
-				print "Or", lexema
-				#return ORP
-			elif edo == ESP:
-				print "Espacio", lexema
-				#return ESP
-			elif edo == OBI:
-				print "Operador binario", lexema
-				#return OBI
-			elif edo == UND:
-				print "Guion bajo", lexema
-				#return UND
-			elif edo == OND:
-				print "Asignacion", lexema
-				#return OND
-			elif edo == ERR:
-				print "Error", lexema
-				#return ERR
-				tokens.append(edo)
-			if edo == END: return tokens
-			lexema = ""
-			edo = 0
+		if edo == VAR:
+			leer = False # ya se ley. el siguiente caracter
+			print "Variable", lexema
+			#return VAR
+		elif edo == CTE:
+			leer = False # ya se ley. el siguiente caracter
+			print "Constante", lexema
+			#return CTE
+		elif edo == SEPA:
+			lexema += c  # el .ltimo caracter forma el lexema
+			print "Separador", lexema
+			#return SEPA
+		elif edo == LRP:
+			lexema += c  # el .ltimo caracter forma el lexema
+			print "Delimitador", lexema
+			#return LRP
+		elif edo == RRP:
+			lexema += c  # el .ltimo caracter forma el lexema
+			print "Delimitador", lexema
+			#return RRP
+		elif edo == COM:
+			lexema += c
+			print "Coma", lexema
+			#return COM
+		elif edo == PUNT:
+			lexema += c
+			print "Punto", lexema
+			#return PUNT
+		elif edo == PUNI:
+			leer = False
+			print "Predicado Binario", lexema
+			#return PUNI
+		elif edo == BUNI:
+			leer = False # el .ltimo caracter no es raro
+			print "Predicado Binario", lexema
+			#return BUNI
+		elif edo == CTF:
+			leer = False
+			print "Cuantificador", lexema
+			#return CTF
+		elif edo == TIL:
+			print "Tilde", lexema
+			#return TIL
+		elif edo == AMP:
+			print "Amperson", lexema
+			#return AMP
+		elif edo == ORP:
+			print "Or", lexema
+			#return ORP
+		elif edo == ESP:
+			print "Espacio", lexema
+			#return ESP
+		elif edo == OBI:
+			print "Operador binario", lexema
+			#return OBI
+		elif edo == UND:
+			print "Guion bajo", lexema
+			#return UND
+		elif edo == OND:
+			print "Asignacion", lexema
+			#return OND
+		elif edo == ERR:
+			print "Error", lexema
+			#return ERR
+			tokens.append(edo)
+		if edo == END: return tokens
+		lexema = ""
+		edo = 0
 
 scanner()
