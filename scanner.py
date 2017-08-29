@@ -170,7 +170,7 @@ def scanner():
 			#return PUNT
 		elif edo == PUNI:
 			leer = False
-			print "Predicado Binario", lexema
+			print "Predicado Unario", lexema
 			#return PUNI
 		elif edo == BUNI:
 			leer = False # el .ltimo caracter no es raro
