@@ -103,7 +103,7 @@ def filtro(c):
 		return 20
 	elif c == '.':
 		return 21
-	elif c == ' ':
+	elif c == ' ' or ord(c) == 9 or ord(c) == 10 or ord(c) == 13:
 		return 22
 	elif c == '(':
 		isAt = 0
@@ -134,7 +134,9 @@ def scanner():
 				c = sys.stdin.read(1)
 			else:
 				leer = True
+			# print "Renglon", edo
 			edo = MT[edo][filtro(c)]
+			# print "columna", filtro(c)
 			if edo < 100 and edo != 0: lexema += c
 		if edo == VAR:
 			leer = False # ya se ley. el siguiente caracter
