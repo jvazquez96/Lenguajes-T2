@@ -61,6 +61,7 @@ MT = [[  1,    2, ERR,      3,    2,    2,    2,    2,    2,    2,    2,    2,  
 	  [OBI,  OBI,  OBI,   OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,   OBI,   OBI,  OBI,   OBI,  ERR,   OBI,  OBI,  OBI,  OBI,   OBI,  ERR, ERR,  OBI]]  #25 <-> | -> (Operador binario)
 
 def filtro(c):
+    global isAt
     if c >= 'a' and c <= 'z':
 		return 0
     elif c >= 'A' and c <= 'Z' and not isAt:
@@ -200,7 +201,8 @@ def scanner():
 			print "Asignacion ", lexema
 			#return OND
         elif edo == ERR:
-			print "Error ", lexema
+            lexema += c
+            print "Error ", lexema
 			#return ERR
         tokens.append(edo)
         if edo == END: return tokens
