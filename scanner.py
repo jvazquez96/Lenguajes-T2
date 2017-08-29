@@ -131,8 +131,7 @@ def scanner():
         while edo < 100:    # mientras el estado no sea ACEPTOR ni ERROR
             if leer: c = sys.stdin.read(1)
             else: leer = True
-            valido = filtro(c, valido)[1]
-            edo = MT[edo][filtro(c, valido)[0]]
+            edo = MT[edo][filtro(c)]
             if edo < 100 and edo != 0: lexema += c
         if edo == VAR:
             leer = False # ya se ley. el siguiente caracter
