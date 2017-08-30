@@ -24,16 +24,39 @@ def parser():
 		print "Error Sintactico"
 
 def oraciones():
-	if token == scanner.PUNI || token == scanner.BUNI || token == scanner.TIL || token == scanner.CTF:
-		match(token)
+		oracion()
 		oraciones1()
+
 
 def oraciones1():
 	if token == scanner.AMP:
 		match(token)
-	elif if token == scanner.COM:
+	elif token == scanner.COM:
 		match(token)
-		oraciones()
+		oracion()
+
+def oracion():
+	if token == scanner.PUNI:
+		match(token)
+	elif token == scanner.BUI:
+		match(token)
+	elif token == scanner.TIL:
+		match(token)
+	elif token == scanner.CTF:
+		match(token)
+
+
+def oracion1():
+	if token == scanner.CTF:
+		match(token)
+
+
+def termino():
+	if token == scanner.VAR:
+		match(VAR)
+	elif token == scanner.CTE:
+		match(CTE)
+
 
 # Termina con un mensaje de error
 def error(mensaje):
