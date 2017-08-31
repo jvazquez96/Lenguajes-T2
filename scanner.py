@@ -29,7 +29,7 @@ END  = 300 # END
 # [renglon, columna] = [estado no final, transicion]
 
 #		a-z  A-Z   0-9      @     A     D     C     T     I     E     O     R     U     B     Z     Q     ~      &     |      <    -	   .   " "    (      )      ,    >     _   =     ?     $     ¬¬¬
-MT = [[  1,    2, ERR,     3,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,   TIL,   AMP,  ORP,    23,   24,  PUNT,    0,  LRP,  RRP,   COM,  ERR, ERR,  OND,  END, SEPA,  26],  #0 Estado inicial
+MT = [[  1,    2, ERR,     3,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,   TIL,   AMP,  ORP,    23,   24,  PUNT,    0,  LRP,  RRP,   COM,  ERR, ERR,  OND,  END, END,  26],  #0 Estado inicial
 	 [  1,  ERR,   1,    ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   VAR,   VAR,  VAR,   VAR,  ERR,   VAR,  VAR,  VAR,  VAR,   VAR,  ERR,   1,  OND,  VAR,  VAR,  VAR],  #1 Variables
 	 [ERR,    2,   2,    CTE,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,   CTE,   CTE,  CTE,   CTE,  ERR,   CTE,  CTE,  CTE,  CTE,   CTE,  ERR,   2,  OND,  CTE,  CTE,  CTE],  #2 Constantes
 	 [ERR,  ERR,  ERR,   ERR,    4,    7,   13,   16,   19,   22,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  OND,  ERR,  ERR,  26],  #3 Arroba @ (Estado parcial)
