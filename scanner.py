@@ -127,7 +127,6 @@ def filtro(c):
 	elif c == '?':
 		return 29
 	elif c == '$':
-		print "Regreso un 30"
 		return 30
 	else:
 		return 31

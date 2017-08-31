@@ -28,13 +28,15 @@ def match(tokenEsperado):
 	global token
 	if token == tokenEsperado:
 		token = scanner.scanner()
-		if token == scanner.END:
-			print "Entrada Correcta"
-			sys.exit(1)
+		# if token == scanner.END:
+		# 	print "Entrada Correcta"
+		# 	sys.exit(1)
+	elif token == ERR:
+		error("Error Lexico")
 	else:
-		print "Token esperado", tokenEsperado
-		print "Token recibido", token
-		error("token inesperado")
+		# print "Token esperado", tokenEsperado
+		# print "Token recibido", token
+		error("Error Sintactico")
 
 def matchTermino():
 	global token
@@ -49,9 +51,10 @@ def parser():
 	oraciones()
 	if token == scanner.END:
 		print "Entrada Correcta"
+	elif token == scanner.ERR:
+		error("Error Lexico")
 	else:
-		print "Token", token
-		print "Error Sintactico"
+		error("Error Sintactico")
 
 def oraciones():
 		oracion()
@@ -100,8 +103,8 @@ def oracion():
 		oracion()
 		match(scanner.RRP)
 		oracion1()
-	else:
-		error("Error")
+	elif token == scanner.ERR:
+		error("Error Lexico")
 
 
 def oracion1():
