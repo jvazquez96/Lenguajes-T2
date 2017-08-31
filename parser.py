@@ -28,11 +28,11 @@ def match(tokenEsperado):
 	global token
 	if token == tokenEsperado:
 		token = scanner.scanner()
-		if token == scanner.END:
-			print "Entrada Correcta"
-			sys.exit(1)
+		# if token == scanner.END:
+		# 	print "Entrada Correcta"
+		# 	sys.exit(1)
 	else:
-		error("Lexico")
+		error("token inesperado")
 
 def parser():
 	global token
@@ -49,7 +49,7 @@ def oraciones():
 
 
 def oraciones1():
-	if token == scanner.AMP:
+	if token == scanner.SEPA:
 		match(token)
 	elif token == scanner.COM:
 		match(token)
@@ -58,17 +58,17 @@ def oraciones1():
 def oracion():
 	if token == scanner.PUNI:
 		match(token) # Predicador Unario
-		match(token) # (
+		match(scanner.LRP) # (
 		match(token) # terminal
-		match(token) # )
+		match(scanner.RRP) # )
 		oracion1()
 	elif token == scanner.BUNI:
 		match(token) # Predicado binario
-		match(token) # (
+		match(scanner.LRP) # (
 		match(token) # termino
-		match(token) # ,
+		match(scanner.COM) # ,
 		match(token) # termino
-		match(token) # )
+		match(scanner.RRP) # )
 		oracion()
 	elif token == scanner.TIL:
 		match(token) #
@@ -76,14 +76,13 @@ def oracion():
 		oracion1()
 	elif token == scanner.CTF:
 		match(token) # Cuantificador
-		match(token) # . Punto
-		match(token) # Variable
+		match(scanner.PUNT) # . Punto
+		match(scanner.VAR) # Variable
 		oracion()
 		oracion1()
 	elif token == scanner.VAR or scanner.CTE:
 		match(token)
 		oracion1()
-
 
 
 def oracion1():
