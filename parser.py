@@ -26,7 +26,6 @@ END  = 300 # END
 
 def match(tokenEsperado):
 	global token
-	print "funcion match()"
 	if token == tokenEsperado:
 		token = scanner.scanner()
 		if token == scanner.END:
@@ -50,7 +49,6 @@ def parser():
 	if token == scanner.END:
 		print "Entrada Correcta"
 	else:
-		print "Token", token
 		print "Error Sintactico"
 
 def oraciones():
@@ -74,14 +72,20 @@ def oracion():
 		oracion1()
 	elif token == scanner.BUNI:
 		match(token) # Predicado binario
+		print "Matchee un predicado binario"
 		match(scanner.LRP) # (
+		print "Matchee un ("
 		matchTermino() # termino
+		print "Matchee un termino"
 		match(scanner.COM) # ,
+		print "Matchee ,"
 		matchTermino() # termino
+		print "Matchee termino"
 		match(scanner.RRP) # )
-		oracion()
+		print "Matchee )"
+		oracion1()
 	elif token == scanner.TIL:
-		match(token) #
+		match(token) # Tilde
 		oracion()
 		oracion1()
 	elif token == scanner.CTF:
