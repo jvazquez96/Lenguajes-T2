@@ -4,6 +4,26 @@
 import sys
 import scanner.py as scanner
 
+VAR  = 101 # Variable
+CTE  = 102 # Constante
+SEPA = 103 # Separador
+LRP  = 104 # Parentesis izquierdo
+RRP  = 105 # Parentesis derecho
+COM =  106 # Coma
+PUNT = 107 # Punto
+PUNI = 108 # Predicado unario
+BUNI = 109 # Predicado binario
+CTF  = 110 # Cuantificador
+TIL  = 111 # Tilde ~
+AMP  = 112 # Amperson &
+ORP  = 113 # Or |
+ESP  = 114 # Espacio
+OBI  = 115 # Operador binario
+UND  = 116 # Guion bajo
+OND  = 117 # Asignacion
+ERR  = 200 # Error
+END  = 300 # END
+
 def match(tokenEsperado):
 	global token
 	if token == tokenEsperado:
@@ -37,18 +57,37 @@ def oraciones1():
 
 def oracion():
 	if token == scanner.PUNI:
-		match(token)
+		match(token) # Predicador Unario
+		match(token) # (
+		match(token) # terminal
+		match(token) # )
+		oracion1()
 	elif token == scanner.BUI:
-		match(token)
+		match(token) # Predicado binario
+		match(token) # (
+		match(token) # termino
+		match(token) # ,
+		match(token) # termino
+		match(token) # )
+		oracion()
 	elif token == scanner.TIL:
-		match(token)
+		match(token) #
+		oracion()
+		oracion1()
 	elif token == scanner.CTF:
-		match(token)
+		match(token) # Cuantificador
+		match(token) # . Punto
+		match(token) # Variable
+		oracion()
+		oracion1()
+
 
 
 def oracion1():
-	if token == scanner.CTF:
-		match(token)
+	if token == scanner.OBI:
+		match(token) # Operador binario
+		oracion()
+		oracion1()
 
 
 def termino():
@@ -56,6 +95,9 @@ def termino():
 		match(VAR)
 	elif token == scanner.CTE:
 		match(CTE)
+
+
+### Falta Simbolo terminal "Termino"
 
 
 # Termina con un mensaje de error
