@@ -93,6 +93,10 @@ def oracion():
 		match(scanner.OND)
 		matchTermino()
 		oracion1()
+	elif token == scanner.LRP:
+		match(token)
+		oracion()
+		oracion1()
 
 
 def oracion1():
