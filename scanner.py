@@ -35,7 +35,7 @@ MT = [[  1,    2, ERR,     3,    2,    2,    2,    2,    2,    2,    2,    2,   
 	 [ERR,  ERR,  ERR,   ERR,    4,    7,   13,   16,   19,   22,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  OND,  ERR,  ERR,  26],  #3 Arroba @ (Estado parcial)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,    5,   13,   16,   19,   22,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   CTF,   CTF,  CTF,   CTF,  CTF,   CTF,  CTF,  CTF,  CTF,   CTF,  CTF, CTF,  CTF,  CTF,  CTF,  CTF],  #4 @A (Cuantificador)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,    6,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  OND,  ERR,  ERR,  26],  #5 @AD (Estado parcial)
-	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  PUNI,  PUNI, PUNI,  PUNI,  ERR,  PUNI, PUNI, PUNI, PUNI,  PUNI,  ERR, ERR,  OND,  PUNI, PUNI, PUNI],  #6 @ADE (Predicador binaro)
+	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUNI,  BUNI,  ERR,  BUNI, BUNI, BUNI, BUNI,  BUNI,  ERR, ERR,  OND,  BUNI, BUNI, PUNI],  #6 @ADE (Predicador binaro)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,    8,   11,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  OND,  ERR,  ERR,  26],  #7 @D (Estado parcial)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,    9,  ERR,  ERR,  ERR,   10,  ERR,  ERR,  ERR,  ERR,   ERR,   ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  OND,  ERR,  ERR,  26],  #8 @DE (Estado parcial)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  BUNI,  BUNI, BUNI,  BUNI,  ERR,  BUNI, BUNI, BUNI,  BUNI, BUNI,  ERR, ERR,  OND,  BUNI, BUNI, BUNI],  #9 @DET (Predicado binario)
@@ -196,10 +196,10 @@ def scanner():
 			return TIL
 		elif edo == AMP:
 			print "Amperson", lexema
-			return AMP
+			return OBI
 		elif edo == ORP:
 			print "Or", lexema
-			return ORP
+			return OBI
 		elif edo == ESP:
 			print "Espacio", lexema
 			return ESP
@@ -230,3 +230,7 @@ def scanner():
 		edo = 0
 
 # scanner()
+#token = scanner()
+#while (token != END):
+#	token = scanner()
+#@A.x (@A.y (@CUB(x) & @TET(y) -> @ADE(x,y))), @E.var1 (var1 = CTEA | @DOD(var1)) & @DET(var1,CTEB) $

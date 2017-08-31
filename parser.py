@@ -33,6 +33,7 @@ def match(tokenEsperado):
 			sys.exit(1)
 	else:
 		print "Token esperado", tokenEsperado
+		print "Token recibido", token
 		error("token inesperado")
 
 def matchTermino():
@@ -49,6 +50,7 @@ def parser():
 	if token == scanner.END:
 		print "Entrada Correcta"
 	else:
+		print "Token", token
 		print "Error Sintactico"
 
 def oraciones():
@@ -67,7 +69,7 @@ def oracion():
 	if token == scanner.PUNI:
 		match(token) # Predicador Unario
 		match(scanner.LRP) # (
-		match(token) # terminal
+		matchTermino()
 		match(scanner.RRP) # )
 		oracion1()
 	elif token == scanner.BUNI:
@@ -77,7 +79,7 @@ def oracion():
 		match(scanner.COM) # ,
 		matchTermino() # termino
 		match(scanner.RRP) # )
-		oracion1()
+		oracion()
 	elif token == scanner.TIL:
 		match(token) # Tilde
 		oracion()
@@ -96,6 +98,7 @@ def oracion():
 	elif token == scanner.LRP:
 		match(token)
 		oracion()
+		match(scanner.RRP)
 		oracion1()
 
 
