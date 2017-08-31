@@ -38,8 +38,8 @@ def matchTermino():
 	global token
 	if token == scanner.CTE or token == scanner.VAR:
 		token = scanner.scanner()
-	else:
-		error("token inesperado")
+	# else:
+	# 	error("token inesperado")
 
 def parser():
 	global token
@@ -100,12 +100,6 @@ def oracion1():
 		oracion()
 		oracion1()
 
-
-def termino():
-	if token == scanner.VAR:
-		match(scanner.VAR)
-	elif token == scanner.CTE:
-		match(scanner.CTE)
 
 
 ### Falta Simbolo terminal "Termino"

@@ -159,7 +159,7 @@ def scanner():
 		elif edo == CTE:
 			_leer = False # ya se ley. el siguiente caracter
 			print "Constante", lexema
-			#return CTE
+			return CTE
 		elif edo == SEPA:
 			lexema += _c  # el .ltimo caracter forma el lexema
 			print "Separador", lexema
