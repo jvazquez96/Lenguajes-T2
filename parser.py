@@ -104,3 +104,6 @@ def termino():
 def error(mensaje):
     print("ERROR:", mensaje)
     sys.exit(1)
+
+
+parser()
