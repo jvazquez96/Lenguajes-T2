@@ -1,6 +1,12 @@
 # - *- coding: utf- 8 - *-
 # Implementación de un scanner mediante la codificación de un Autómata
 # Finito Determinista como una Matríz de Transiciones
+# Daniel González González		A01280648
+# José Luis Carvajal Carbajal 	A01280704
+# Jorge Armando Vazquez Ortiz   A01196160
+
+
+
 
 import sys
 
@@ -25,6 +31,7 @@ UND  = 116 # Guion bajo
 OND  = 117 # Asignacion
 ERR  = 200 # Error
 END  = 300 # END
+
 # Matriz de transiciones: codificacion del AFD
 # [renglon, columna] = [estado no final, transicion]
 
@@ -57,13 +64,14 @@ MT = [[  1,    2, ERR,     3,    2,    2,    2,    2,    2,    2,    2,    2,   
 	 [OBI,  OBI,  OBI,   OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,  OBI,   OBI,   OBI,  OBI,   OBI,  ERR,   OBI,  OBI,  OBI,  OBI,   OBI,  ERR, ERR,  OND,  OBI,  OBI,  OBI], #25 <-> | -> (Operador binario)
 	 [ERR,  ERR,  ERR,   ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,  ERR,   ERR,    ERR,  ERR,   ERR,  ERR,   ERR,  ERR,  ERR,  ERR,   ERR,  ERR, ERR,  ERR,  ERR,  ERR,  ERR]]  #26 WTF
 
-
+# Filtro de caracteres: regresa el número de columna de la matriz de transiciones
+# de acuerdo al caracter dado
 def filtro(c):
 	global isAt
-	if c >= 'a' and c <= 'z':
+	if c >= 'a' and c <= 'z': # Caracteres entre a y z (Minisculas)
 		return 0
-	elif c >= 'A' and c <= 'Z':
-		if isAt:
+	elif c >= 'A' and c <= 'Z': # Caracteres entre A y Z (Mayusculas)
+		if isAt: # Si el caracter es un @ este solamente puede estar seguido por los siguientes caracteres
 			if c == 'A':
 				return 4
 			elif c == 'D':
@@ -92,41 +100,41 @@ def filtro(c):
 				return 1
 		else:
 			return 1
-	elif c >= '0' and c <= '9':
+	elif c >= '0' and c <= '9': # Digitos
 		return 2
-	elif c == '@':
+	elif c == '@': # Arroba
 		isAt = 1
 		return 3
-	elif c == '~':
+	elif c == '~': # Tile ~
 		return 16
-	elif c == '&':
+	elif c == '&': # Amperson
 		return 17
-	elif c == '|':
+	elif c == '|': # Or |
 		return 18
-	elif c == '<':
+	elif c == '<': # Menor que <
 		return 19
-	elif c == '-':
+	elif c == '-': # Guion -
 		return 20
-	elif c == '.':
+	elif c == '.': # Punto .
 		return 21
-	elif c == ' ' or ord(c) == 9 or ord(c) == 10 or ord(c) == 13:
+	elif c == ' ' or ord(c) == 9 or ord(c) == 10 or ord(c) == 13: # Espacio, tab
 		return 22
-	elif c == '(':
+	elif c == '(': # Parentesis Izquierdo
 		isAt = 0
 		return 23
-	elif c == ')':
+	elif c == ')': # Parentesis Derecho
 		return 24
-	elif c == ',':
+	elif c == ',': # Coma
 		return 25
-	elif c == '>':
+	elif c == '>': # Mayor que
 		return 26
-	elif c == '_':
+	elif c == '_': # Guion bajo _
 		return 27
-	elif c == '=':
+	elif c == '=': # Igual =
 		return 28
-	elif c == '?':
+	elif c == '?': # Simbolo de pregunta ?
 		return 29
-	elif c == '$':
+	elif c == '$': # Simbolo de peso
 		return 30
 	else:
 		return 31
@@ -136,14 +144,14 @@ _leer = True
 
 def scanner():
 	global isAt
-	edo = 0 # n.mero de estado en el aut.mata
+	edo = 0 # numero de estado en el aut.mata
 	lexema = "" # palabra que genera el token
 	global _c
 	tokens = []
 	global _leer # indica si se requiere leer un caracter de la entrada est.ndar
 	isAt = 0
 	while (True):
-		while edo < 100:    # mientras el estado no sea ACEPTOR ni ERROR
+		while edo < 100:   # mientras el estado no sea ACEPTOR ni ERROR
 			if _leer:
 				_c = sys.stdin.read(1)
 			else:
@@ -151,23 +159,23 @@ def scanner():
 			edo = MT[edo][filtro(_c)]
 			if edo < 100 and edo != 0: lexema += _c
 		if edo == VAR:
-			_leer = False # ya se ley. el siguiente caracter
+			_leer = False # ya se leyo el siguiente caracter
 			print "Variable", lexema
 			return VAR
 		elif edo == CTE:
-			_leer = False # ya se ley. el siguiente caracter
+			_leer = False # ya se leyo el siguiente caracter
 			print "Constante", lexema
 			return CTE
 		elif edo == SEPA:
-			lexema += _c  # el .ltimo caracter forma el lexema
+			lexema += _c  # el ultimo caracter forma el lexema
 			print "Separador", lexema
 			return SEPA
 		elif edo == LRP:
-			lexema += _c  # el .ltimo caracter forma el lexema
+			lexema += _c  # el ultimo caracter forma el lexema
 			print "Delimitador", lexema
 			return LRP
 		elif edo == RRP:
-			lexema += _c  # el .ltimo caracter forma el lexema
+			lexema += _c  # el ultimo caracter forma el lexema
 			print "Delimitador", lexema
 			return RRP
 		elif edo == COM:
@@ -227,16 +235,3 @@ def scanner():
 		if edo == END: return tokens
 		lexema = ""
 		edo = 0
-<<<<<<< HEAD
-# token = scanner()
-# while (token != END):
-# 	token = scanner()
-#@IZQ(A,B) <-> ~@DER(B,A) $
-=======
-
-# scanner()
-#token = scanner()
-#while (token != END):
-#	token = scanner()
-#@IZQ(A,B) <-> ~@DER(B,A) $
->>>>>>> bdc4f3ef7492c5329a23d5a095f00b968bcc0f04
