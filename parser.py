@@ -80,6 +80,9 @@ def oracion():
 		match(token) # Variable
 		oracion()
 		oracion1()
+	elif token == scanner.VAR or scanner.CTE:
+		match(token)
+		oracion1()
 
 
 
