@@ -127,6 +127,7 @@ def filtro(c):
 	elif c == '?':
 		return 29
 	elif c == '$':
+		print "Regreso un 30"
 		return 30
 	else:
 		return 31
@@ -148,9 +149,7 @@ def scanner():
 				_c = sys.stdin.read(1)
 			else:
 				_leer = True
-			# print "Renglon", edo
 			edo = MT[edo][filtro(_c)]
-			# print "columna", filtro(c)
 			if edo < 100 and edo != 0: lexema += _c
 		if edo == VAR:
 			_leer = False # ya se ley. el siguiente caracter
@@ -219,6 +218,13 @@ def scanner():
 			print "Error", lexema
 			return ERR
 			tokens.append(edo)
+		elif edo == END:
+			print "Fin de expresion"
+			return END
+		else:
+			leer = False
+			print "Error"
+			return END
 		if edo == END: return tokens
 		lexema = ""
 		edo = 0

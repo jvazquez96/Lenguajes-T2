@@ -29,10 +29,11 @@ def match(tokenEsperado):
 	print "funcion match()"
 	if token == tokenEsperado:
 		token = scanner.scanner()
-		# if token == scanner.END:
-		# 	print "Entrada Correcta"
-		# 	sys.exit(1)
+		if token == scanner.END:
+			print "Entrada Correcta"
+			sys.exit(1)
 	else:
+		print "Token esperado", tokenEsperado
 		error("token inesperado")
 
 def matchTermino():
@@ -49,6 +50,7 @@ def parser():
 	if token == scanner.END:
 		print "Entrada Correcta"
 	else:
+		print "Token", token
 		print "Error Sintactico"
 
 def oraciones():
