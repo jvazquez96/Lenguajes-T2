@@ -2,7 +2,7 @@
 # Implementación de un parser
 
 import sys
-import scanner.py as scanner
+import scanner as scanner
 
 VAR  = 101 # Variable
 CTE  = 102 # Constante
