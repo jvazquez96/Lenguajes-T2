@@ -140,7 +140,7 @@ def scanner():
 	lexema = "" # palabra que genera el token
 	global _c
 	tokens = []
-	global leer # indica si se requiere leer un caracter de la entrada est.ndar
+	global _leer # indica si se requiere leer un caracter de la entrada est.ndar
 	isAt = 0
 	while (True):
 		while edo < 100:    # mientras el estado no sea ACEPTOR ni ERROR
