@@ -73,6 +73,7 @@ def oracion():
 		match(token) # Predicador Unario
 		match(scanner.LRP) # (
 		matchTermino()
+		print "Matching a right parenthesis"
 		match(scanner.RRP) # )
 		oracion1()
 	elif token == scanner.BUNI:
@@ -100,7 +101,9 @@ def oracion():
 		oracion1()
 	elif token == scanner.LRP:
 		match(token)
+		print "Mando a llamar oracion"
 		oracion()
+		print "asodjasdasdaihusdiaubsdiuasdiauhds"
 		match(scanner.RRP)
 		oracion1()
 	elif token == scanner.ERR:
@@ -112,9 +115,6 @@ def oracion1():
 		match(token) # Operador binario
 		oracion()
 		oracion1()
-
-### Falta Simbolo terminal "Termino"
-
 
 # Termina con un mensaje de error
 def error(mensaje):
