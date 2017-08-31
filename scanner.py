@@ -228,7 +228,9 @@ def scanner():
 		if edo == END: return tokens
 		lexema = ""
 		edo = 0
-# token = scanner()
-# while (token != END):
-# 	token = scanner()
+
+# scanner()
+#token = scanner()
+#while (token != END):
+#	token = scanner()
 #@IZQ(A,B) <-> ~@DER(B,A) $

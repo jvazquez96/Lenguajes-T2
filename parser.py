@@ -28,9 +28,6 @@ def match(tokenEsperado):
 	global token
 	if token == tokenEsperado:
 		token = scanner.scanner()
-		if token == scanner.END:
-			print "Entrada Correcta"
-			sys.exit(1)
 	else:
 		print "Token esperado", tokenEsperado
 		print "Token recibido", token
@@ -70,6 +67,7 @@ def oracion():
 		match(token) # Predicador Unario
 		match(scanner.LRP) # (
 		matchTermino()
+		print "Matching a right parenthesis"
 		match(scanner.RRP) # )
 		oracion1()
 	elif token == scanner.BUNI:
@@ -97,11 +95,11 @@ def oracion():
 		oracion1()
 	elif token == scanner.LRP:
 		match(token)
+		print "Mando a llamar oracion"
 		oracion()
+		print "asodjasdasdaihusdiaubsdiuasdiauhds"
 		match(scanner.RRP)
 		oracion1()
-	else:
-		error("Error")
 
 
 def oracion1():
@@ -109,9 +107,6 @@ def oracion1():
 		match(token) # Operador binario
 		oracion()
 		oracion1()
-
-### Falta Simbolo terminal "Termino"
-
 
 # Termina con un mensaje de error
 def error(mensaje):
