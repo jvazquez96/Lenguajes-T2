@@ -228,9 +228,7 @@ def scanner():
 		if edo == END: return tokens
 		lexema = ""
 		edo = 0
-
-# scanner()
-#token = scanner()
-#while (token != END):
-#	token = scanner()
-#@A.x (@A.y (@CUB(x) & @TET(y) -> @ADE(x,y))), @E.var1 (var1 = CTEA | @DOD(var1)) & @DET(var1,CTEB) $
+# token = scanner()
+# while (token != END):
+# 	token = scanner()
+#@IZQ(A,B) <-> ~@DER(B,A) $

@@ -79,7 +79,7 @@ def oracion():
 		match(scanner.COM) # ,
 		matchTermino() # termino
 		match(scanner.RRP) # )
-		oracion()
+		oracion1()
 	elif token == scanner.TIL:
 		match(token) # Tilde
 		oracion()
@@ -100,6 +100,8 @@ def oracion():
 		oracion()
 		match(scanner.RRP)
 		oracion1()
+	else:
+		error("Error")
 
 
 def oracion1():
