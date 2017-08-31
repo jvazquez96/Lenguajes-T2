@@ -62,7 +62,7 @@ def oracion():
 		match(token) # terminal
 		match(token) # )
 		oracion1()
-	elif token == scanner.BUI:
+	elif token == scanner.BUNI:
 		match(token) # Predicado binario
 		match(token) # (
 		match(token) # termino
