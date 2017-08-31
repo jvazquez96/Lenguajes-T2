@@ -72,17 +72,11 @@ def oracion():
 		oracion1()
 	elif token == scanner.BUNI:
 		match(token) # Predicado binario
-		print "Matchee un predicado binario"
 		match(scanner.LRP) # (
-		print "Matchee un ("
 		matchTermino() # termino
-		print "Matchee un termino"
 		match(scanner.COM) # ,
-		print "Matchee ,"
 		matchTermino() # termino
-		print "Matchee termino"
 		match(scanner.RRP) # )
-		print "Matchee )"
 		oracion1()
 	elif token == scanner.TIL:
 		match(token) # Tilde
