@@ -34,9 +34,9 @@ def match(tokenEsperado):
 	else:
 		error("token inesperado")
 
-def matchTermino(tokenEsperado):
+def matchTermino():
 	global token
-	if tokenEsperado == scanner.CTE or tokenEsperado == scanner.VAR:
+	if token == scanner.CTE or token == scanner.VAR:
 		token = scanner.scanner()
 	else:
 		error("token inesperado")
@@ -72,9 +72,9 @@ def oracion():
 	elif token == scanner.BUNI:
 		match(token) # Predicado binario
 		match(scanner.LRP) # (
-		matchTermino(token) # termino
+		matchTermino() # termino
 		match(scanner.COM) # ,
-		matchTermino(token) # termino
+		matchTermino() # termino
 		match(scanner.RRP) # )
 		oracion()
 	elif token == scanner.TIL:
@@ -88,9 +88,9 @@ def oracion():
 		oracion()
 		oracion1()
 	elif token == scanner.VAR or scanner.CTE:
-		matchTermino(token)
+		matchTermino()
 		match(scanner.OND)
-		matchTermino(token)
+		matchTermino()
 		oracion1()
 
 
@@ -103,9 +103,9 @@ def oracion1():
 
 def termino():
 	if token == scanner.VAR:
-		match(VAR)
+		match(scanner.VAR)
 	elif token == scanner.CTE:
-		match(CTE)
+		match(scanner.CTE)
 
 
 ### Falta Simbolo terminal "Termino"
