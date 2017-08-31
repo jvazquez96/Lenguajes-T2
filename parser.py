@@ -6,6 +6,8 @@
 # Daniel González González		A01280648
 # José Luis Carvajal Carbajal 	A01280704
 # Jorge Armando Vazquez Ortiz   A01196160
+#---------------------------------------------------------
+
 
 import sys
 import scanner as scanner
