@@ -34,6 +34,13 @@ def match(tokenEsperado):
 	else:
 		error("token inesperado")
 
+def matchTermino(tokenEsperado):
+	global token
+	if tokenEsperado == scanner.CTE or tokenEsperado == scanner.VAR:
+		token = scanner.scanner()
+	else:
+		error("token inesperado")
+
 def parser():
 	global token
 	token = scanner.scanner()
@@ -65,9 +72,9 @@ def oracion():
 	elif token == scanner.BUNI:
 		match(token) # Predicado binario
 		match(scanner.LRP) # (
-		match(token) # termino
+		matchTermino(token) # termino
 		match(scanner.COM) # ,
-		match(token) # termino
+		matchTermino(token) # termino
 		match(scanner.RRP) # )
 		oracion()
 	elif token == scanner.TIL:
@@ -81,7 +88,9 @@ def oracion():
 		oracion()
 		oracion1()
 	elif token == scanner.VAR or scanner.CTE:
-		match(token)
+		matchTermino(token)
+		match(scanner.OND)
+		matchTermino(token)
 		oracion1()
 
 
