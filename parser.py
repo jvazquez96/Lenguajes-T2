@@ -26,6 +26,7 @@ END  = 300 # END
 
 def match(tokenEsperado):
 	global token
+	print "funcion match()"
 	if token == tokenEsperado:
 		token = scanner.scanner()
 		# if token == scanner.END:
@@ -38,8 +39,8 @@ def matchTermino():
 	global token
 	if token == scanner.CTE or token == scanner.VAR:
 		token = scanner.scanner()
-	# else:
-	# 	error("token inesperado")
+	else:
+		error("token inesperado")
 
 def parser():
 	global token
@@ -87,7 +88,7 @@ def oracion():
 		match(scanner.VAR) # Variable
 		oracion()
 		oracion1()
-	elif token == scanner.VAR or scanner.CTE:
+	elif token == scanner.VAR or token == scanner.CTE:
 		matchTermino()
 		match(scanner.OND)
 		matchTermino()
@@ -99,8 +100,6 @@ def oracion1():
 		match(token) # Operador binario
 		oracion()
 		oracion1()
-
-
 
 ### Falta Simbolo terminal "Termino"
 
